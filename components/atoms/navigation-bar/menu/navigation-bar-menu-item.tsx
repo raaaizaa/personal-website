@@ -8,8 +8,8 @@ export default function NavigationBarMenuItem({data, active}: {data:NavbarItem; 
   return (
     <>
         <Link href={data.href}>
-            <button className={cn('hover:bg-[#3a3a3a] px-8 h-[64px]', active)}>
-                <TextMontserrat className='text-xl text-white font-bold'>{data.name}</TextMontserrat>
+            <button className={cn('hover:bg-[#3a3a3a] hover:ease-in-out hover:duration-100 px-6 h-[64px]', active)}>
+                <TextMontserrat className='text-xl text-white font-light'>{data.name}</TextMontserrat>
             </button>
         </Link>
     </>

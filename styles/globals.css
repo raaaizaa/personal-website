@@ -4,12 +4,12 @@
 
 @layer base {
   :root {
-    background-color: #0f0f0f;
+    background-color: #212121;
   }
 }
 
 .bg-dark {
-  background-color: #0f0f0f;
+  background-color: #212121;
 }
 
 .bg-lighter-dark {

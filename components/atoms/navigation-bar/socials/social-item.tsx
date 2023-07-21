@@ -5,7 +5,7 @@ export default function SocialItem({data, active, children}: {data:SocialMediaIt
   return (
     <>
         <Link href={data.href}>
-            <button className='hover:bg-[#3a3a3a] p-4'>
+            <button className='hover:bg-[#3a3a3a] hover:ease-in-out hover:duration-100 p-4'>
                 {children}
             </button>
         </Link>
