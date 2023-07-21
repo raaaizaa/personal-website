@@ -16,10 +16,12 @@ export default function NavigationBar() {
     return (
         <>
             <div className="bg-lighter-dark justify-between flex h-[64px] items-center">
-                <TextMontserrat className="text-white font-bold text-2xl p-4">blablablabla</TextMontserrat>
+                <TextMontserrat className="text-white font-bold text-2xl px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 py-4 transition-all">blablablabla</TextMontserrat>
                 <NavigationBarMenu />
-                <SocialLinks />
-                <div className="block md:hidden p-4 hover:bg-[#3a3a3a] hover:ease-in-out hover:duration-100 ">
+                <div className='flex px-4 md:px-12 lg:px-20 xl:px-32 transition-all'>
+                    <SocialLinks />
+                </div>
+                <div className="block lg:hidden p-4 hover:bg-[#3a3a3a] hover:ease-in-out hover:duration-100 ">
                     <SidebarButton onClick={handleNav} />
                 </div>
             </div>

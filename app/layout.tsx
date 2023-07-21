@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
     return (
         <html lang="en">
-            <body className={cn('font-montserrat', montserratFont.variable)}>
+            <body className={cn('font-montserrat h-screen', montserratFont.variable)}>
                 <NavigationBar />
                 {children}
             </body>

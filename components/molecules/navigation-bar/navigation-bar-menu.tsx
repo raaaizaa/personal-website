@@ -8,7 +8,7 @@ export default function NavigationBarMenu({}: {data:NavbarItem}) {
     const pathName = usePathname();
 
   return (
-    <div className='hidden md:block'>
+    <div className='hidden lg:block'>
         {navbarItem.map((data, index) => {
             return (
                 <NavigationBarMenuItem key={index} data={data} active={data.href.split('/')[2] === pathName.split('/')[2]} />

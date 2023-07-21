@@ -3,15 +3,16 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    background-color: #212121;
-  }
+    :root {
+        background-color: #212121;
+        color: white;
+    }
 }
 
 .bg-dark {
-  background-color: #212121;
+    background-color: #212121;
 }
 
 .bg-lighter-dark {
-  background-color: #262626;
+    background-color: #262626;
 }

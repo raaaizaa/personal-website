@@ -9,7 +9,7 @@ export default function SocialLinks({}: {data: SocialMediaItem}) {
     const pathName = usePathname();
 
     return (
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
             {socialMediaItem.map((data, index) => {
                 const Icon = data.icon;
                 return (
