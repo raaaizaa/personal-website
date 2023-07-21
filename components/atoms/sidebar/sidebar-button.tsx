@@ -7,10 +7,8 @@ interface buttonProps{
 
 export default function SidebarButton({onClick}: buttonProps) {
     return (
-        <div>
-            <button onClick={onClick}>
+            <button onClick={onClick} >
                 <AiOutlineMenu style={{color: 'white', height: '32px', width: '32px'}} />
             </button>
-        </div>
     );
 }

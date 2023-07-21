@@ -13,7 +13,7 @@ export default function SocialLinks({}: {data: SocialMediaItem}) {
             {socialMediaItem.map((data, index) => {
                 const Icon = data.icon;
                 return (
-                    <SocialItem key={index} data={data} active={data.href.split('/')[2] === pathName.split('/')[2]}>
+                    <SocialItem key={index} data={data}>
                         <Icon style={{color: 'white', height: '32px', width: '32px'}} />
                     </SocialItem>
                 );

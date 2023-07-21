@@ -1,7 +1,7 @@
 import { NavbarItem } from '@/components/constants/navigation-bar-item/navbar-item'
 import Link from 'next/link'
 import React from 'react'
-import { TextPoppins } from '../../typography/text-poppins/text-poppins'
+import { TextPoppins } from '../typography/text-poppins/text-poppins'
 
 export default function SidebarMenuItem({data}: {data:NavbarItem}) {
   return (

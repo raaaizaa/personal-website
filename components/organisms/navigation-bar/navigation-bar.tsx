@@ -1,9 +1,9 @@
 'use client';
 
-import SidebarButton from '@/components/atoms/navigation-bar/menu/sidebar-button';
+import SidebarButton from '@/components/atoms/sidebar/sidebar-button';
 import {TextMontserrat} from '@/components/atoms/typography/text-montserrat/text-montserrat';
 import NavigationBarMenu from '@/components/molecules/navigation-bar/navigation-bar-menu';
-import Sidebar from '@/components/molecules/navigation-bar/sidebar';
+import Sidebar from '@/components/molecules/sidebar/sidebar';
 import SocialLinks from '@/components/molecules/navigation-bar/social-links';
 import React, {useState} from 'react';
 
@@ -23,7 +23,7 @@ export default function NavigationBar() {
                     <SidebarButton onClick={handleNav} />
                 </div>
             </div>
-            <Sidebar />
+            <Sidebar isOpen={nav} onClose={handleNav}/>
         </>
     );
 }
