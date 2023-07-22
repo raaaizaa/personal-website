@@ -4,28 +4,27 @@ import {NavbarItem, navbarItem} from '@/components/constants/navigation-bar-item
 import {SocialMediaItem} from '@/components/constants/social-media/social-media-item';
 import SidebarCloseButton from '@/components/atoms/sidebar/sidebar-close-button';
 import SocialLinksSidebar from './social-links-sidebar';
+import { TextCutout } from '@/components/atoms/typography/text-cutout/text-cutout';
 
 interface sidebarProps {
-    menuItem: NavbarItem;
-    socialItem: SocialMediaItem;
     isOpen: boolean;
     onClose: () => void;
 }
 
-export default function Sidebar({menuItem, socialItem, isOpen, onClose}: sidebarProps) {
+export default function Sidebar({isOpen, onClose}: sidebarProps) {
     return (
-        <div className={isOpen ? "fixed left-0 top-0 w-full h-screen bg-black/50" : '' } >
-            <div className={isOpen ? "bg-dark w-[75%] h-screen fixed top-0 right-0 p-16" : 'fixed left-[-100%] top-0'}>
+        <div className={isOpen ? "fixed left-0 top-0 w-full h-screen bg-black/50 ease-in duration-100" : '' } >
+            <div className={isOpen ? "bg-dark w-[75%] h-screen fixed top-0 right-0 p-16 ease-linear duration-100" : 'fixed left-[-100%] top-0'}>
                 <div className='justify-end flex'>
                     <SidebarCloseButton onClick={onClose}/>
                 </div>
-                <TextMontserrat className="text-white font-bold text-4xl">Menu</TextMontserrat>
+                <TextCutout className="text-white font-bold text-4xl">mEnU</TextCutout>
                 <div className="py-8">
                     {navbarItem.map((menuItem, index) => {
                         return <SidebarMenuItem key={index} data={menuItem} />;
                     })}
                 </div>
-                <TextMontserrat className="text-white font-bold text-4xl">Connect</TextMontserrat>
+                <TextCutout className="text-white font-bold text-4xl">ConNecT</TextCutout>
                 <div className="py-8">
                     <SocialLinksSidebar />
                 </div>

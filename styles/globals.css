@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
 @layer base {
     :root {
         background-color: #212121;
@@ -17,6 +19,17 @@
     background-color: #262626;
 }
 
-.typewriter {
-    font-family: ;
+.bg-yellow-accent {
+    background-color: #ffb800;
+}
+
+.typewriter-text {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 30px;
+}
+
+@media (max-width: 768px) {
+    .typewriter-text {
+        font-size: 20px; /* Font size for smaller screens */
+    }
 }

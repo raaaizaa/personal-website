@@ -2,12 +2,9 @@
 
 import SocialItem from '@/components/atoms/navigation-bar/socials/social-item';
 import {SocialMediaItem, socialMediaItem} from '@/components/constants/social-media/social-media-item';
-import {usePathname} from 'next/navigation';
 import React from 'react';
 
 export default function SocialLinks({}: {data: SocialMediaItem}) {
-    const pathName = usePathname();
-
     return (
         <div className="hidden lg:block">
             {socialMediaItem.map((data, index) => {
