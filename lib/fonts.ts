@@ -1,4 +1,4 @@
-import {Montserrat, Poppins, Abril_Fatface} from 'next/font/google';
+import {Montserrat, Poppins, Abril_Fatface, Inter} from 'next/font/google';
 import localFont from 'next/font/local';
 
 export const montserratFont = Montserrat({
@@ -12,6 +12,12 @@ export const poppinsFont = Poppins({
     variable: '--font-poppins',
     weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
 });
+
+export const interFont = Inter({
+    subsets: ['latin'],
+    variable: '--font-poppins',
+    weight :['400', '500', '600', '700', '800', '900']
+})
 
 export const fatfaceFont = Abril_Fatface({
     subsets: ['latin'],
