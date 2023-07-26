@@ -8,6 +8,7 @@ export default function PortfolioPage() {
         <div className='block'>
             <TextInter className='text-5xl py-4 font-bold'>:/</TextInter>
             <TextCutout className='text-5xl py-4'>Coming soon</TextCutout>
+            <TextInter className='font-bold'>((sebenernya lagi males masukinnya sih))</TextInter>
         </div>
     </div>
   )

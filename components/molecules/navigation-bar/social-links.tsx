@@ -4,7 +4,11 @@ import SocialItem from '@/components/atoms/navigation-bar/socials/social-item';
 import {SocialMediaItem, socialMediaItem} from '@/components/constants/social-media/social-media-item';
 import React from 'react';
 
-export default function SocialLinks({}: {data: SocialMediaItem}) {
+interface socialLinksProps{
+    data: SocialMediaItem[]
+}
+
+export default function SocialLinks({data}: socialLinksProps) {
     return (
         <div className="hidden lg:block">
             {socialMediaItem.map((data, index) => {

@@ -1,7 +1,7 @@
 import SidebarMenuItem from '@/components/atoms/sidebar/sidebar-menu-item';
 import {TextMontserrat} from '@/components/atoms/typography/text-montserrat/text-montserrat';
 import {NavbarItem, navbarItem} from '@/components/constants/navigation-bar-item/navbar-item';
-import {SocialMediaItem} from '@/components/constants/social-media/social-media-item';
+import {SocialMediaItem, socialMediaItem} from '@/components/constants/social-media/social-media-item';
 import SidebarCloseButton from '@/components/atoms/sidebar/sidebar-close-button';
 import SocialLinksSidebar from './social-links-sidebar';
 import { TextCutout } from '@/components/atoms/typography/text-cutout/text-cutout';
@@ -26,7 +26,7 @@ export default function Sidebar({isOpen, onClose}: sidebarProps) {
                 </div>
                 <TextCutout className="text-white font-bold text-4xl">ConNecT</TextCutout>
                 <div className="py-8">
-                    <SocialLinksSidebar />
+                    <SocialLinksSidebar data={socialMediaItem}/>
                 </div>
             </div>
         </div>

@@ -23,8 +23,7 @@ export default function Title() {
         <div className='text-center lg:text-start'>
             <TextCutout className="text-2xl xl:text-3xl py-4">HelLo! my name is</TextCutout>
             <TextCutout className=" text-5xl xl:text-6xl text-[#ffb800] py-2">RaizA rAhMAN</TextCutout>
-            <div className="block xl:flex py-0 xl:py-2 items-center gap-2">
-                <div className='py-2 xl:py-0'>
+                <div className=' xl:py-0'>
                     {/* <TypewriterComponent
                         options={{
                             autoStart: true,
@@ -35,10 +34,9 @@ export default function Title() {
                             wrapperClassName: 'typewriter-text'
                         }}
                     /> */}
-                    <TextCutout className='text-xl xl:text-3xl tracking-wide'>an Undergraduate COmputer Science Student</TextCutout>
+                    <TextCutout className='text-xl xl:text-3xl py-2'>An uNDergradUATE COMPUTER SCIENCE</TextCutout>
                 </div>
-            </div>
-            <TextCutout className="text-xl xl:text-3xl py-2">at Bina Nusantara University</TextCutout>
+            <TextCutout className="text-xl xl:text-3xl py-2">STuDENT At Bina NusanTara UniversitY</TextCutout>
         </div>
     );
 }
