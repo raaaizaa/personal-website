@@ -7,7 +7,7 @@ import { FaSpotify, FaLastfm } from 'react-icons/fa';
 
 export default function TopAlbum() {
     return (
-        <div className="px-48 py-24 space-y-12" id='current-obsession' style={{scrollBehavior:'smooth'}}>
+        <div className="lg:px-48 lg:py-24 px-12 py-16 space-y-12" id='current-obsession' style={{scrollBehavior:'smooth'}}>
             <TextTooDrunk className="text-[#ffb800] text-5xl">Current obsession</TextTooDrunk>
             <TextInter className='text-2xl'>Here's my top listened album in last 7 days:</TextInter>
             <div>

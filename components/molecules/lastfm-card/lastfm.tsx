@@ -23,7 +23,8 @@ export default function LastFm() {
                     name: album.name,
                     artist: album.artist.name,
                     playcount: album.playcount,
-                    image: album.image[3]['#text']
+                    image: album.image[3]['#text'],
+                    url: album.url
                 }
             }));
             console.log('nih bisa ga');
@@ -39,9 +40,9 @@ export default function LastFm() {
     }, []);
 
     return (
-        <div className="grid grid-cols-5 grid-rows-2 gap-4">
+        <div className="grid md:grid-cols-5 grid-rows-2 grid-cols-2 gap-4">
             {album.map((album) => (
-                <LastFmCard name={album.album.name} artist={album.album.artist} playcount={album.album.playcount} image={album.album.image}/>
+                <LastFmCard name={album.album.name} artist={album.album.artist} playcount={album.album.playcount} image={album.album.image} url={album.album.url}/>
             ))}
         </div>
     );

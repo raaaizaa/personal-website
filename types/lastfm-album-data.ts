@@ -4,5 +4,6 @@ export interface albumData {
         artist: string;
         playcount: string;
         image: string;
+        url: string
     }
 }
