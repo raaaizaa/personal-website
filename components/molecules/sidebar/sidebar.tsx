@@ -1,7 +1,6 @@
 import SidebarMenuItem from '@/components/atoms/sidebar/sidebar-menu-item';
-import {TextMontserrat} from '@/components/atoms/typography/text-montserrat/text-montserrat';
-import {NavbarItem, navbarItem} from '@/components/constants/navigation-bar-item/navbar-item';
-import {SocialMediaItem, socialMediaItem} from '@/components/constants/social-media/social-media-item';
+import {navbarItem} from '@/components/constants/navigation-bar-item/navbar-item';
+import {socialMediaItem} from '@/components/constants/social-media/social-media-item';
 import SidebarCloseButton from '@/components/atoms/sidebar/sidebar-close-button';
 import SocialLinksSidebar from './social-links-sidebar';
 import { TextCutout } from '@/components/atoms/typography/text-cutout/text-cutout';

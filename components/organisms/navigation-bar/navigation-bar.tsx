@@ -16,7 +16,7 @@ export default function NavigationBar() {
     };
     return (
         <>
-            <div className="bg-lighter-dark justify-end lg:justify-between flex h-[64px] items-center px-4 md:px-12 lg:px-20 xl:px-32 transition-all">
+            <div className="fixed w-screen bg-lighter-dark justify-end lg:justify-between flex h-[64px] items-center px-4 md:px-12 lg:px-20 xl:px-32 transition-all">
                 <NavigationBarMenu data={navbarItem} />
                 <SocialLinks data={socialMediaItem} />
                 <div className="flex lg:hidden">

@@ -1,0 +1,27 @@
+import { TextInter } from '@/components/atoms/typography/text-inter/text-inter';
+import { TextTooDrunk } from '@/components/atoms/typography/text-linotype/text-linotype';
+import LastFm from '@/components/molecules/lastfm-card/lastfm';
+import Link from 'next/link';
+import React from 'react';
+import { FaSpotify, FaLastfm } from 'react-icons/fa';
+
+export default function TopAlbum() {
+    return (
+        <div className="px-48 py-24 space-y-12" id='current-obsession' style={{scrollBehavior:'smooth'}}>
+            <TextTooDrunk className="text-[#ffb800] text-5xl">Current obsession</TextTooDrunk>
+            <TextInter className='text-2xl'>Here's my top listened album in last 7 days:</TextInter>
+            <div>
+                <LastFm />
+            </div>
+            <div className='flex justify-end gap-4 items-center'>
+                <TextInter>Connect: </TextInter>
+                <Link href='https://open.spotify.com/user/raaaizaa' target="_blank">
+                <FaSpotify style={{width:'48', height:'48'}} className='hover:fill-[#1DB954] active:fill-[#1DB954] ease-in duration-75'/>
+                </Link>
+                <Link href='https://www.last.fm/user/Raaizar' target="_blank">
+                    <FaLastfm style={{width:'48', height:'48'}} className='hover:fill-[#c3000d] active:fill-[#c3000d] ease-in duration-75'/>
+                </Link>
+            </div>
+        </div>
+    );
+}

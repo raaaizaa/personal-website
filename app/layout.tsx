@@ -1,7 +1,5 @@
-import {cn} from '@/lib/utils';
 import '../styles/globals.css';
 import type {Metadata} from 'next';
-import {montserratFont} from '@/lib/fonts';
 import {siteConfiguration} from '@/components/constants/site-configuration';
 import NavigationBar from '@/components/organisms/navigation-bar/navigation-bar';
 

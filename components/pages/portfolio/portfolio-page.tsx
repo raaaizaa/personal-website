@@ -7,7 +7,7 @@ export default function PortfolioPage() {
     <div className='flex justify-center items-center h-[93%] p-32 text-center'>
         <div className='block'>
             <TextInter className='text-5xl py-4 font-bold'>:/</TextInter>
-            <TextCutout className='text-5xl py-4'>Coming soon</TextCutout>
+            <TextCutout className='text-5xl py-4 text-[#FFB800]'>Coming soon</TextCutout>
             <TextInter className='font-bold'>((sebenernya lagi males masukinnya sih))</TextInter>
         </div>
     </div>

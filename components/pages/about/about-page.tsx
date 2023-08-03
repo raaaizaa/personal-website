@@ -1,12 +1,12 @@
 import InfoSection from '@/components/templates/about/info-section/info-section'
-import LastListenedSection from '@/components/templates/about/last-listened-section/last-listened-section'
+import TopAlbum from '@/components/templates/about/top-album/top-album'
 import React from 'react'
 
 export default function AboutPage() {
   return (
-    <div className='p-28'>
+    <div className='scroll-smooth'>
         <InfoSection />
-        <LastListenedSection />
+        <TopAlbum />
     </div>
   )
 }

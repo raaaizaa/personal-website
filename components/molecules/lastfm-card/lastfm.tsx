@@ -1,0 +1,48 @@
+'use client';
+import {albumData} from '@/types/lastfm-album-data';
+import axios from 'axios';
+import React, {useEffect, useState} from 'react';
+import {Card, CardHeader, CardBody, CardFooter, Image} from '@nextui-org/react';
+import LastFmCard from '@/components/atoms/lastfm-card/lastfm-card';
+
+export default function LastFm() {
+    const baseURL = 'https://ws.audioscrobbler.com/2.0';
+
+    const [album, setAlbum] = useState<albumData[]>([]);
+
+    const getTopAlbum = async () => {
+        try {
+            const response = await axios.get(
+                `${baseURL}?method=user.gettopalbums&user=${process.env.LASTFM_USERNAME}&api_key=${process.env.LASTFM_API_KEY}&format=json&period=${process.env.LASTFM_PERIOD}`
+            );
+            console.log(response.data);
+
+            const topAlbum = response.data.topalbums.album;
+            const albumDataArray: albumData[] = topAlbum.slice(0, 10).map((album: any) => ({
+                album: {
+                    name: album.name,
+                    artist: album.artist.name,
+                    playcount: album.playcount,
+                    image: album.image[3]['#text']
+                }
+            }));
+            console.log('nih bisa ga');
+            setAlbum(albumDataArray);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+    useEffect(() => {
+        console.log('tes');
+        getTopAlbum();
+    }, []);
+
+    return (
+        <div className="grid grid-cols-5 grid-rows-2 gap-4">
+            {album.map((album) => (
+                <LastFmCard name={album.album.name} artist={album.album.artist} playcount={album.album.playcount} image={album.album.image}/>
+            ))}
+        </div>
+    );
+}
