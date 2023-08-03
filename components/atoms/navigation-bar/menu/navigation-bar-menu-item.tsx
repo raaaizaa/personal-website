@@ -9,8 +9,8 @@ export default function NavigationBarMenuItem({data, active}: {data:NavbarItem; 
   return (
     <>
         <Link href={data.href}>
-            <button className={cn('hover:bg-[#d89c00] hover:ease-in-out hover:duration-100 lg:px-4 xl:px-5 h-[64px]', active)}>
-                <TextCutout className='text-2xl text-white'>{data.name}</TextCutout>
+            <button className={cn('hover:bg-[#2A2A2A] hover:ease-in-out hover:duration-100 lg:px-4 xl:px-5 h-[64px]', active)}>
+                <TextCutout className='text-2xl text-[#FFB800]'>{data.name}</TextCutout>
             </button>
         </Link>
     </>

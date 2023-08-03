@@ -1,12 +1,11 @@
 'use client';
 import React from 'react';
-import {TextMontserrat} from '@/components/atoms/typography/text-montserrat/text-montserrat';
-import TypewriterComponent from 'typewriter-effect';
 import {TextCutout} from '@/components/atoms/typography/text-cutout/text-cutout';
-import {TextFatface} from '@/components/atoms/typography/text-fatface/text-fatface';
 import {useEffect} from 'react';
 import '@/styles/globals.css';
-import { TextInter } from '@/components/atoms/typography/text-roboto/text-roboto';
+import { TextInter } from '@/components/atoms/typography/text-inter/text-inter';
+import { TextP5 } from '@/components/atoms/typography/text-p5/text-p5';
+import { TextTooDrunk } from '@/components/atoms/typography/text-linotype/text-linotype';
 
 export default function Title() {
     useEffect(() => {
@@ -21,22 +20,12 @@ export default function Title() {
     }, []);
     return (
         <div className='text-center lg:text-start'>
-            <TextCutout className="text-2xl xl:text-3xl py-4">HelLo! my name is</TextCutout>
-            <TextCutout className=" text-5xl xl:text-6xl text-[#ffb800] py-2">RaizA rAhMAN</TextCutout>
+            <TextP5 className="text-2xl xl:text-5xl py-4">HelLo! my name is</TextP5>
+            <TextTooDrunk className='text-6xl text-[#FFB800]'>raiza rahman</TextTooDrunk>
                 <div className=' xl:py-0'>
-                    {/* <TypewriterComponent
-                        options={{
-                            autoStart: true,
-                            loop: true,
-                            delay: 40,
-                            cursor: '|' ,
-                            strings: ['an Undergraduate Computer Science Student'],
-                            wrapperClassName: 'typewriter-text'
-                        }}
-                    /> */}
-                    <TextCutout className='text-xl xl:text-3xl py-2'>An uNDergradUATE COMPUTER SCIENCE</TextCutout>
+                    <TextP5 className='text-xl xl:text-5xl py-2'>An uNDergradUATE COMPUTER SCIENCE</TextP5>
                 </div>
-            <TextCutout className="text-xl xl:text-3xl py-2">STuDENT At Bina NusanTara UniversitY</TextCutout>
+            <TextP5 className="text-xl xl:text-5xl py-2">STuDENT At Bina NusanTara UniversitY</TextP5>
         </div>
     );
 }

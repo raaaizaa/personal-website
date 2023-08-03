@@ -1,5 +1,5 @@
 import { TextCutout } from '@/components/atoms/typography/text-cutout/text-cutout'
-import { TextInter } from '@/components/atoms/typography/text-roboto/text-roboto'
+import { TextInter } from '@/components/atoms/typography/text-inter/text-inter'
 import React from 'react'
 
 export default function InfoSection() {

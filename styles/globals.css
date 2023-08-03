@@ -6,23 +6,22 @@
 
 @layer base {
     :root {
-        background-image: url('../public/images/background-grain.jpg');
-        background-color: #212121;
+        background-color: #1A1A1A;
         background-size: cover;
         color: white;
     }
 }
 
 .bg-dark {
-    background-color: #212121;
+    background-color: #1A1A1A;
 }
 
 .bg-lighter-dark {
-    background-color: #262626;
+    background-color: #1E1E1E;
 }
 
 .bg-yellow-accent {
-    background-color: #ffb800;
+    background-color: #FFB800;
 }
 
 .typewriter-text {
