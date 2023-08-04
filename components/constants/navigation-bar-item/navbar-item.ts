@@ -1,7 +1,7 @@
 export const navbarItem = [
-  { name: 'HOME', href: '/' },
-  { name: 'PORTFOLIO', href: '/portfolio' },
-  { name: 'ABOUT', href: '/about' },
+  { name: 'Home', href: '/' },
+  { name: 'Portfolio', href: '/portfolio' },
+  { name: 'About', href: '/about' },
 ]
 
 export type NavbarItem = (typeof navbarItem)[0]

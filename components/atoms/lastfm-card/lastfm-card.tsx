@@ -13,7 +13,7 @@ interface cardProps {
 
 export default function LastFmCard({name, artist, playcount, image, url}: cardProps) {
     return (
-        <Card className="bg-[#0F0F0F] rounded-2xl hover:bg-[#1E1E1E] active:bg-[#1E1E1E] ease-in duration-150">
+        <Card className="hover:scale-[1.05] bg-[#0F0F0F] rounded-2xl hover:bg-[#1E1E1E] active:bg-[#1E1E1E] ease-linear duration-150">
                 <Link href={url} target="_blank">
                 <CardBody className="">
                     <Image src={image} className="rounded-t-2xl" />

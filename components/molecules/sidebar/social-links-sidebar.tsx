@@ -8,13 +8,13 @@ interface sidebarProps{
 
 export default function SocialLinksSidebar({data}: sidebarProps) {
     return (
-        <div className="px-[-64px]">
+        <div className="flex gap-4">
             {socialMediaItem.map((data, index) => {
                 const Icon = data.icon;
                 return (
-                    <div className="inline-flex gap-4" key={index}>
-                        <SocialItemSidebar  data={data}>
-                            <Icon style={{color: 'white', height: '48px', width: '48px'}} />
+                    <div className="" key={index}>
+                        <SocialItemSidebar data={data}>
+                            <Icon style={{color: 'white', height: '32px', width: '32px'}} />
                         </SocialItemSidebar>
                     </div>
                 );

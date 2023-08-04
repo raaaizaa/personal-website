@@ -1,14 +1,25 @@
-import React from 'react';
-import {AiOutlineMenu} from 'react-icons/ai';
+import React, {useState} from 'react';
+import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai';
 
-interface buttonProps{
+interface buttonProps {
     onClick: () => void;
 }
 
 export default function SidebarButton({onClick}: buttonProps) {
+    const [isClicked, setIsClicked] = useState(false);
+
+    const handleButton = () => {
+        setIsClicked(!isClicked);
+        onClick();
+    };
+
     return (
-            <button onClick={onClick} >
-                <AiOutlineMenu style={{color: 'white', height: '32px', width: '32px'}} />
-            </button>
+        <>
+            {isClicked ? (
+                <AiOutlineClose style={{color: 'white', height: '32px', width: '32px'}} onClick={handleButton} />
+            ) : (
+                <AiOutlineMenu style={{color: 'white', height: '32px', width: '32px'}} onClick={handleButton} />
+            )}
+        </>
     );
 }

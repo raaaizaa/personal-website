@@ -4,10 +4,8 @@ import React from 'react';
 
 export default function SocialItemSidebar({data, children}: {data: SocialMediaItem; children: React.ReactNode}) {
     return (
-        <>
-            <Link href={data.href}>
-                <button className="pe-4">{children}</button>
-            </Link>
-        </>
+        <Link href={data.href} target="_blank" className='flex'>
+            {children}
+        </Link>
     );
 }
