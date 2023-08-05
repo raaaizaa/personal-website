@@ -4,7 +4,7 @@ import MangaCard from '@/components/atoms/myanimelist-card/manga-card';
 import {animeData, mangaData} from '@/types/animanga-data';
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
-import { Icon } from '@iconify/react';
+
 
 export default function MyAnimelist() {
     const username = 'coneundeur';
@@ -65,10 +65,9 @@ export default function MyAnimelist() {
         getAnimanga();
     }, []);
     return (
-        <div>
+        <div className='flex justify-between'>
             <MangaCard date={manga.date} status={manga.status} chapters_read={manga.chapters_read} title={manga.title} url={manga.url} image={manga.image}/>
             <AnimeCard date={anime.date} status={anime.status} episodes_seen={anime.episodes_seen} title={anime.title} url={anime.url} image={anime.image} />
-            <Icon icon="simple-icons:myanimelist" style={{width:'56', height:'56'}} className=' hover:text-[#2e51a2] active:text-[#2e51a2] ease-in duration-75' />
         </div>
     );
 }
