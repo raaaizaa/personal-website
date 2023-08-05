@@ -17,7 +17,7 @@ export default function InfoSection() {
                     Development. Sejujurnya lagi bingung mau yang mana yang lebih difokusin tapi yaudalah jalanin dulu
                     aja lah ya. Website ini jadi bentuk kegabutan ngotak-ngatik ngoding sekaligus jadi wadah
                     ngeekspresiin interest diri sendiri dan juga mungkin bakal jadi website portfolio diri sendiri.
-                    Walaupun jujur ngerasa design website-nya agak "alay" (dan iya bener kalo notice ini font-nya ada
+                    Walaupun jujur ngerasa design website-nya agak alay (dan iya bener kalo notice ini font-nya ada
                     yang dari font game Persona 5) tapi yaudah ini website memang didesain begini soalnya bosen sama
                     tampilan website kebanyakan yang clean-clean gitu mulu (baca: anaknya pengen beda dari yang lain).
                 </TextInter>

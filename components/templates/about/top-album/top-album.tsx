@@ -14,7 +14,7 @@ export default function TopAlbum() {
         >
             <TextTooDrunk className="text-[#ffb800] text-3xl lg:text-4xl xl:text-5xl">Current obsession</TextTooDrunk>
             <TextInter className="text-base lg:text-xl xl:text-2xl text-justify">
-                Akhir-akhir ini (atau lebih tepatnya tujuh hari terakhir) lagi "obsessed" sama album-album yang ada
+                Akhir-akhir ini (atau lebih tepatnya tujuh hari terakhir) lagi obsessed sama album-album yang ada
                 disini. Sebenernya dipikir-pikir aneh juga ya yang diliat satu album padahal bisa aja dari album itu
                 cuman ngedenger satu-dua track doang. Disclaimer juga jumlah scrobble-nya bisa juga gak akurat karena
                 entah kenapa Last.fm kadang suka ngaco.
