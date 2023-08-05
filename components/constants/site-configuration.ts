@@ -1,6 +1,6 @@
 export const siteConfiguration = {
-  title: 'Raiza Rahman',
-  description: "Raiza's Personal Website",
-}
+    title: 'raaaizaa',
+    description: "Raiza's Personal Website"
+};
 
-export type SiteConfiguration = typeof siteConfiguration
+export type SiteConfiguration = typeof siteConfiguration;

@@ -1,73 +1,81 @@
 'use client';
+
+import {useEffect, useState} from 'react';
+import axios from 'axios';
 import AnimeCard from '@/components/atoms/myanimelist-card/anime-card';
 import MangaCard from '@/components/atoms/myanimelist-card/manga-card';
 import {animeData, mangaData} from '@/types/animanga-data';
-import axios from 'axios';
-import React, {useEffect, useState} from 'react';
 
+const username = 'coneundeur';
+
+async function fetchAnimangaData() {
+    try {
+        const response = await axios.get(`https://api.jikan.moe/v4/users/${username}/userupdates`);
+
+        const animeResponse = response.data.data.anime[0];
+        const mangaResponse = response.data.data.manga[0];
+
+        const anime: animeData = {
+            date: animeResponse.date,
+            status: animeResponse.status,
+            episodes_seen: animeResponse.episodes_seen,
+            title: animeResponse.entry.title,
+            image: animeResponse.entry.images.jpg.large_image_url,
+            url: animeResponse.entry.url
+        };
+
+        const manga: mangaData = {
+            date: mangaResponse.date,
+            status: mangaResponse.status,
+            chapters_read: mangaResponse.chapters_read,
+            title: mangaResponse.entry.title,
+            image: mangaResponse.entry.images.jpg.large_image_url,
+            url: mangaResponse.entry.url
+        };
+
+        return {anime, manga};
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return {anime: null, manga: null};
+    }
+}
 
 export default function MyAnimelist() {
-    const username = 'coneundeur';
-    const [anime, setAnime] = useState<animeData>({
-        date: '',
-        status: '',
-        episodes_seen: 0,
-        title: '',
-        image: '',
-        url: ''
+    const [animangaData, setAnimangaData] = useState<{anime: animeData | null; manga: mangaData | null}>({
+        anime: null,
+        manga: null
     });
-    const [manga, setManga] = useState<mangaData>({
-        date: '',
-        status: '',
-        chapters_read: 0,
-        title: '',
-        image: '',
-        url: ''
-    });
-
-    const getAnimanga = async () => {
-        try {
-            const response = await axios.get(`https://api.jikan.moe/v4/users/${username}/userupdates`);
-            console.log(response.data);
-            console.log('teesss');
-
-            const animeResponse = response.data.data.anime[0];
-            const mangaResponse = response.data.data.manga[0];
-
-            const anime = {
-                date: animeResponse.date,
-                status: animeResponse.status,
-                episodes_seen: animeResponse.episodes_seen,
-                title: animeResponse.entry.title,
-                image: animeResponse.entry.images.jpg.large_image_url,
-                url: animeResponse.entry.url
-            };
-            setAnime(anime);
-            console.log(anime);
-
-            const manga = {
-                date: mangaResponse.date,
-                status: mangaResponse.status,
-                chapters_read: mangaResponse.chapters_read,
-                title: mangaResponse.entry.title,
-                image: mangaResponse.entry.images.jpg.large_image_url,
-                url: mangaResponse.entry.url
-            };
-
-            setManga(manga);
-            console.log(manga);
-        } catch (error) {
-            console.log(error);
-        }
-    };
 
     useEffect(() => {
-        getAnimanga();
+        async function getAnimangaData() {
+            const data = await fetchAnimangaData();
+            setAnimangaData(data);
+        }
+        getAnimangaData();
     }, []);
+
     return (
-        <div className='flex justify-between'>
-            <MangaCard date={manga.date} status={manga.status} chapters_read={manga.chapters_read} title={manga.title} url={manga.url} image={manga.image}/>
-            <AnimeCard date={anime.date} status={anime.status} episodes_seen={anime.episodes_seen} title={anime.title} url={anime.url} image={anime.image} />
+        <div className="block lg:flex lg:justify-between space-y-8 lg:space-y-0">
+            {animangaData.manga && (
+                <MangaCard
+                    date={animangaData.manga.date}
+                    status={animangaData.manga.status}
+                    chapters_read={animangaData.manga.chapters_read}
+                    title={animangaData.manga.title}
+                    url={animangaData.manga.url}
+                    image={animangaData.manga.image}
+                />
+            )}
+            {animangaData.anime && (
+                <AnimeCard
+                    date={animangaData.anime.date}
+                    status={animangaData.anime.status}
+                    episodes_seen={animangaData.anime.episodes_seen}
+                    title={animangaData.anime.title}
+                    url={animangaData.anime.url}
+                    image={animangaData.anime.image}
+                />
+            )}
         </div>
     );
 }

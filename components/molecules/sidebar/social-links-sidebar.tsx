@@ -2,7 +2,7 @@ import SocialItemSidebar from '@/components/atoms/sidebar/socials/social-item-si
 import {SocialMediaItem, socialMediaItem} from '@/components/constants/social-media/social-media-item';
 import React from 'react';
 
-interface sidebarProps{
+interface sidebarProps {
     data: SocialMediaItem[];
 }
 
