@@ -8,6 +8,8 @@ import {animeData, mangaData} from '@/types/animanga-data';
 
 const username = 'coneundeur';
 
+
+
 async function fetchAnimangaData() {
     try {
         const response = await axios.get(`https://api.jikan.moe/v4/users/${username}/userupdates`);
