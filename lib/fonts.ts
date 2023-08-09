@@ -12,3 +12,7 @@ export const cutoutFont = localFont({ src: '../fonts/cutout-font.ttf' })
 export const p5Font = localFont({ src: '../fonts/expose-regular.otf' })
 
 export const tooDrunkFont = localFont({ src: '../fonts/too-drunk-to-fuck.ttf' })
+
+export const humanErrorFont = localFont({src: '../fonts/human-error.ttf'})
+
+export const humanErrorFlagFont = localFont({src: '../fonts/human-error-flag.ttf'})

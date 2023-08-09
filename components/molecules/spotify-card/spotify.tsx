@@ -8,6 +8,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { TextInter } from '@/components/atoms/typography/text-inter/text-inter'
 import { TextP5 } from '@/components/atoms/typography/text-p5/text-p5'
+import { TextHumanError, TextHumanErrorFlag } from '@/components/atoms/typography/text-human-error/text-human-error'
 
 const USER_IS_CURRENTLY_PLAYING = 200
 const TOKEN = Buffer.from(
@@ -107,10 +108,10 @@ export default function Spotify() {
         const song = insertSong(
           metadata.artists[0].name,
           metadata.artists[0].uri,
-          metadata.album.images[0].url,
           metadata.name,
+          metadata.external_urls.spotify,
+          metadata.album.images[0].url,
           metadata.album.uri,
-          metadata.external_urls.spotify
         )
 
         setSong(song)
@@ -129,10 +130,10 @@ export default function Spotify() {
       {playing == true && error == false}
       {
         <div>
-          <div className="flex text-sm md:text-base lg:text-xl justify-center gap-2">
-            <TextP5 className="text-[#ffb800] text-4xl xl:text-5xl text-center">
+          <div className="flex text-sm md:text-base lg:text-xl justify-center gap-2 py-2">
+            <TextHumanErrorFlag className="text-[#ffb800] text-4xl xl:text-5xl text-center">
               {playing ? 'Currently Listening to: ' : 'Last Played: '}
-            </TextP5>
+            </TextHumanErrorFlag>
           </div>
           <div className="flex justify-center">
             <Link href={song.albumLink} target="_blank">

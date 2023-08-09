@@ -10,19 +10,19 @@ const username = 'coneundeur'
 
 async function fetchAnimangaData() {
   try {
-    const response = await axios.get(
+    const updateResponse = await axios.get(
       `https://api.jikan.moe/v4/users/${username}/userupdates`
     )
 
-    const animeResponse = response.data.data.anime[0]
-    const mangaResponse = response.data.data.manga[0]
+    const animeResponse = updateResponse.data.data.anime[0]
+    const mangaResponse = updateResponse.data.data.manga[0]
 
     const anime: animeData = {
       date: animeResponse.date,
       episodes_seen: animeResponse.episodes_seen,
       title: animeResponse.entry.title,
       image: animeResponse.entry.images.jpg.large_image_url,
-      url: animeResponse.entry.url,
+      url: animeResponse.entry.url
     }
 
     const manga: mangaData = {
@@ -30,7 +30,7 @@ async function fetchAnimangaData() {
       chapters_read: mangaResponse.chapters_read,
       title: mangaResponse.entry.title,
       image: mangaResponse.entry.images.jpg.large_image_url,
-      url: mangaResponse.entry.url,
+      url: mangaResponse.entry.url
     }
 
     return { anime, manga }
@@ -40,7 +40,7 @@ async function fetchAnimangaData() {
   }
 }
 
-export default function MyAnimelist() {
+export default function MyAnimelistUpdate() {
   const [animangaData, setAnimangaData] = useState<{
     anime: animeData | null
     manga: mangaData | null

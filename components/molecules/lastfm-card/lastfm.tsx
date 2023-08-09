@@ -6,11 +6,12 @@ import { albumData } from '@/types/lastfm-album-data'
 import LastFmCard from '@/components/atoms/lastfm-card/lastfm-card'
 
 const baseURL = 'https://ws.audioscrobbler.com/2.0'
+const period = '1month'
 
 async function fetch() {
   try {
     const response = await axios.get(
-      `${baseURL}?method=user.gettopalbums&user=${process.env.NEXT_PUBLIC_LASTFM_USERNAME}&api_key=${process.env.NEXT_PUBLIC_LASTFM_API_KEY}&format=json&period=${process.env.NEXT_PUBLIC_LASTFM_PERIOD}`
+      `${baseURL}?method=user.gettopalbums&user=${process.env.NEXT_PUBLIC_LASTFM_USERNAME}&api_key=${process.env.NEXT_PUBLIC_LASTFM_API_KEY}&format=json&period=${period}`
     )
 
     const responseAlbum = response.data.topalbums.album
