@@ -7,8 +7,10 @@ import { songMetadata } from '@/types/spotify-song-metadata'
 import Image from 'next/image'
 import Link from 'next/link'
 import { TextInter } from '@/components/atoms/typography/text-inter/text-inter'
-import { TextP5 } from '@/components/atoms/typography/text-p5/text-p5'
-import { TextHumanError, TextHumanErrorFlag } from '@/components/atoms/typography/text-human-error/text-human-error'
+import currently from '@/public/images/homepage/spotify/currently.png'
+import play from '@/public/images/homepage/spotify/playing.png'
+import last from '@/public/images/homepage/spotify/last.png'
+import played from '@/public/images/homepage/spotify/played.png'
 
 const USER_IS_CURRENTLY_PLAYING = 200
 const TOKEN = Buffer.from(
@@ -61,7 +63,6 @@ export default function Spotify() {
       )
 
       const ACCESS_TOKEN = accessTokenResponse.data.access_token
-
       const currentlyPlayingResponse = await axios.get(
         'https://api.spotify.com/v1/me/player/currently-playing',
         {
@@ -78,6 +79,8 @@ export default function Spotify() {
         setError(false)
 
         const metadata = currentlyPlayingResponse.data.item
+        console.log('tes')
+        console.log(metadata)
 
         const song = insertSong(
           metadata.artists[0].name,
@@ -111,7 +114,7 @@ export default function Spotify() {
           metadata.name,
           metadata.external_urls.spotify,
           metadata.album.images[0].url,
-          metadata.album.uri,
+          metadata.album.uri
         )
 
         setSong(song)
@@ -125,54 +128,80 @@ export default function Spotify() {
     getPlayingStatus()
   }, [])
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      getPlayingStatus()
+    }, 1000)
+    return () => clearInterval(interval)
+  })
+
   return (
-    <div className="block justify-center items-center space-y-4 hover:scale-105 ease-in-out duration-75">
-      {playing == true && error == false}
-      {
-        <div>
-          <div className="flex text-sm md:text-base lg:text-xl justify-center gap-2 py-2">
-            <TextHumanErrorFlag className="text-[#ffb800] text-4xl xl:text-5xl text-center">
-              {playing ? 'Currently Listening to: ' : 'Last Played: '}
-            </TextHumanErrorFlag>
+    <div className="flex items-center px-12 pt-12 pb-12 lg:px-36 xl:px-48 ">
+      {error === false && (
+        <div className="lg:flex xl:flex block justify-between w-full">
+          <div className="flex justify-center items-center">
+            {playing ? (
+              <div className="flex items-center justify-center pb-4">
+                <div className="block">
+                  <Image
+                    src={currently}
+                    alt="currently"
+                    width={450}
+                    height={200}
+                  />
+                  <Image src={play} alt="play" width={450} height={200} />
+                </div>
+              </div>
+            ) : (
+              <div className="flex items-center justify-center pb-4">
+                <div className="block">
+                  <div className="flex justify-center items-center">
+                    <Image src={last} alt="last" width={350} height={200} />
+                  </div>
+                  <Image src={played} alt="played" width={450} height={200} />
+                </div>
+              </div>
+            )}
           </div>
-          <div className="flex justify-center">
-            <Link href={song.albumLink} target="_blank">
-              <Image
-                priority={true}
-                src={song.albumImage}
-                width={400}
-                height={400}
-                alt="img"
-              />
-            </Link>
-          </div>
-          <div className="text-sm lg:text-base xl:text-base text-center">
-            <Link
-              href={song.songLink}
-              target="_blank"
-              className="hover:underline">
-              <TextInter>
-                {song.songName.length > 50
-                  ? `${song.songName.substring(0, 50)}...`
-                  : song.songName}
-              </TextInter>
-            </Link>
-            <Link
-              href={song.artistLink}
-              target="_blank"
-              className="hover:underline">
-              <TextInter>
-                {song.artistName.length > 50
-                  ? `${song.artistName.substring(0, 50)}...`
-                  : song.artistName}
-              </TextInter>
-            </Link>
+          <div className="block text-center lg:flex lg:flex-row-reverse lg:text-start xl:flex xl:flex-row-reverse xl:text-start items-center ease-linear duration-150 hover:scale-[1.05]">
+            <div className="flex justify-center">
+              <Link href={song.albumLink} target="_blank">
+                <Image
+                  priority={true}
+                  src={song.albumImage}
+                  width={400}
+                  height={400}
+                  alt="img"
+                />
+              </Link>
+            </div>
+            <div className="text-sm lg:text-base xl:text-xl px-0 lg:px-2 xl:px-8">
+              <Link
+                href={song.songLink}
+                target="_blank"
+                className="hover:underline">
+                <TextInter>
+                  {song.songName.length > 50
+                    ? `${song.songName.substring(0, 50)}...`
+                    : song.songName}
+                </TextInter>
+              </Link>
+              <Link
+                href={song.artistLink}
+                target="_blank"
+                className="hover:underline">
+                <TextInter>
+                  {song.artistName.length > 50
+                    ? `${song.artistName.substring(0, 50)}...`
+                    : song.artistName}
+                </TextInter>
+              </Link>
+            </div>
           </div>
         </div>
-      }
-
-      {error == true}
-      {<div></div>}
+      )}
+      {error}
+      {<></>}
     </div>
   )
 }

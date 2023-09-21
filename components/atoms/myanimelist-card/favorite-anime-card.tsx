@@ -12,9 +12,15 @@ interface props {
 export default function FavoriteAnime({ title, image, url }: props) {
   return (
     <div className="text-center flex justify-center hover:scale-105 ease-in-out duration-100 items-center">
-      <Link href={url} target='__blank'>
+      <Link href={url} target="__blank">
         <div className="flex justify-center">
-          <Image src={image} width={300} height={300} alt={title} />
+          <Image
+            src={image}
+            width={320}
+            height={440}
+            className="overflow-clip aspect-160/220"
+            alt={title}
+          />
         </div>
       </Link>
     </div>

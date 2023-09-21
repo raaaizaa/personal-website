@@ -7,13 +7,13 @@ import { TextInter } from '@/components/atoms/typography/text-inter/text-inter'
 import Link from 'next/link'
 import { TextHumanErrorFlag } from '@/components/atoms/typography/text-human-error/text-human-error'
 import MyAnimeListFavorite from '@/components/molecules/myanimelist/myanimelist-favorite'
+import animanga from '@/public/images/homepage/animanga/animanga.png'
+import Image from 'next/image'
 
 export default function Animanga() {
   return (
     <div className="bg-[#FFB800] lg:px-48 lg:py-24 px-12 py-16 space-y-12">
-      <TextHumanErrorFlag className="text-black text-3xl lg:text-4xl xl:text-5xl">
-        Animanga
-      </TextHumanErrorFlag>
+      <Image src={animanga} alt='animanga' width={350} height={200} />
       <MyAnimeListFavorite />
       <MyAnimelistUpdate />
       <div className="flex justify-end gap-4 items-center">

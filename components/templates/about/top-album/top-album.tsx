@@ -9,12 +9,10 @@ import { FaSpotify, FaLastfm } from 'react-icons/fa'
 export default function TopAlbum() {
   return (
     <div
-      className="lg:px-48 lg:py-24 px-12 py-16 space-y-12"
+      className="lg:px-48 py-6 px-12 space-y-12"
       id="current-obsession"
       style={{ scrollBehavior: 'smooth' }}>
-      <TextHumanErrorFlag className="text-[#ffb800] text-3xl lg:text-4xl xl:text-5xl">
-        Current obsession
-      </TextHumanErrorFlag>
+        
       <TextInter className="text-base lg:text-xl xl:text-2xl text-justify">
         Satu bulan terakhir ini lagi obsessed sama album-album yang ada disini:
       </TextInter>

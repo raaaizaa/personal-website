@@ -1,3 +1,4 @@
+
 import FavoriteAnime from '@/components/atoms/myanimelist-card/favorite-anime-card'
 import FavoriteManga from '@/components/atoms/myanimelist-card/favorite-manga-card'
 import { TextInter } from '@/components/atoms/typography/text-inter/text-inter'
