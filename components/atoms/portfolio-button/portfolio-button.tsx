@@ -6,8 +6,7 @@ export default function PortfolioButton() {
   return (
     <div className="flex items-center gap-4">
       <Link
-        // href="/portfolio/portfolio-raiza-rahman-juni-2023.pdf"
-        href="/portfolio/portfolio"
+        href="/portfolio/portfolio-raiza-rahman-juni-2023.pdf"
         target="__blank">
         <TextInter className="hover:underline md:text-xl lg:text-2xl xl:text-3xl">
           Click here to view the portfolio as PDF
