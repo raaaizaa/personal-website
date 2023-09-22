@@ -14,7 +14,7 @@ export default function Sidebar({ isOpen, onClose }: sidebarProps) {
     <div
       className={
         isOpen
-          ? 'fixed left-0 top-0 w-full h-screen bg-black/50 transition-all duration-75'
+          ? 'z-30 fixed left-0 top-0 w-full h-screen bg-black/50 transition-all duration-75'
           : ''
       }>
       <div

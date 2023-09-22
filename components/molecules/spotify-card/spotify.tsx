@@ -79,8 +79,6 @@ export default function Spotify() {
         setError(false)
 
         const metadata = currentlyPlayingResponse.data.item
-        console.log('tes')
-        console.log(metadata)
 
         const song = insertSong(
           metadata.artists[0].name,

@@ -12,7 +12,7 @@
     },
     "dependencies": {
         "@next/font": "^13.4.12",
-        "@nextui-org/react": "^2.0.1",
+        "@nextui-org/react": "^2.1.13",
         "@spotify/web-api-ts-sdk": "^1.0.3",
         "@types/node": "20.4.2",
         "@types/react": "18.2.15",
@@ -23,7 +23,7 @@
         "dotenv": "^16.3.1",
         "eslint": "8.45.0",
         "eslint-config-next": "13.4.10",
-        "framer-motion": "^10.15.0",
+        "framer-motion": "^10.16.4",
         "next": "13.4.10",
         "postcss": "8.4.26",
         "querystring": "^0.2.1",

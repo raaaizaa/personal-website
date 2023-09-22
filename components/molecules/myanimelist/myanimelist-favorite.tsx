@@ -16,7 +16,6 @@ async function fetchAnimangaData() {
   const favoriteAnimeResponse = favoriteResponse.data.data.anime
   const favoriteMangaResponse = favoriteResponse.data.data.manga
 
-  console.log(favoriteMangaResponse)
 
   const mangaArray: mangaData[] = favoriteMangaResponse
     .slice(0, 6)
@@ -37,9 +36,6 @@ async function fetchAnimangaData() {
       image: favoriteAnimeResponse.images.jpg.large_image_url,
       url: favoriteAnimeResponse.url,
     }))
-
-  console.log(mangaArray)
-  console.log(animeArray)
 
   const anime = animeArray
   const manga = mangaArray
