@@ -28,7 +28,7 @@ export default function DetailLayout({ params }: props) {
   }, [id])
 
   return (
-    <div className="h-[93%] px-12 md:px-24 lg:px-32 xl:px-96 py-32 text-start text-white">
+    <div className="h-[93%] px-12 md:px-24 lg:px-32 xl:px-96 py-32  text-start text-white">
       {project !== undefined ? (
         <div>
           <TextInter className="text-3xl lg:text-5xl xl:text-6xl font-bold">
@@ -58,7 +58,7 @@ export default function DetailLayout({ params }: props) {
               </Link>
             </div>
           </div>
-          <TextInter className="text-base lg:text-xl xl:text-xl text-justify">
+          <TextInter className="text-base lg:text-xl xl:text-xl text-justify pb-16">
             {project.description}
           </TextInter>
         </div>
