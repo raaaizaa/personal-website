@@ -30,9 +30,9 @@ export default function LastFmCard({
           <Image src={image} className="rounded-t-2xl" />
         </CardBody>
         <CardFooter className="block items-center text-center py-2">
-          <TextInter className="text-sm md:text-base">{name}</TextInter>
-          <TextInter className="text-sm md:text-base">{artist}</TextInter>
-          <TextInter className="text-sm md:text-base">
+          <TextInter className="text-sm md:text-base text-white">{name}</TextInter>
+          <TextInter className="text-sm md:text-base text-white">{artist}</TextInter>
+          <TextInter className="text-sm md:text-base text-white">
             {playcount == '1'
               ? `${playcount} scrobble`
               : `${playcount} scrobbles`}
