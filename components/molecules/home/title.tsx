@@ -6,6 +6,7 @@ import my from '@/public/images/homepage/title/my.png'
 import name from '@/public/images/homepage/title/name.png'
 import is from '@/public/images/homepage/title/is.png'
 import raiza from '@/public/images/homepage/title/raiza.png'
+import title from '@/public/images/homepage/title/hello-my-name-is.png'
 
 export default function Title() {
   return (

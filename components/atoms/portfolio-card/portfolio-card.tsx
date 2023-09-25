@@ -30,7 +30,7 @@ export default function PortfolioCard({
     <Card isPressable className="bg-[#2c2c2c] text-white items-center">
       <Link href={`portfolio/detail/${id}`}>
         <CardHeader>
-          <div className="block text-start px-2 pt-2">
+          <div className="block text-start px-2 pt-2 ">
             <TextInter className="text-base md:text-xl lg:text-2xl xl:text-2xl font-bold">
               {name}
             </TextInter>
@@ -39,12 +39,13 @@ export default function PortfolioCard({
             </TextInter>
           </div>
         </CardHeader>
-        <CardBody className="flex justify-center items-center">
+        <CardBody className="flex justify-center items-center overflow-visible ">
           <Image
             src={image}
             alt={name}
             width={400}
             height={400}
+            
             style={{ borderRadius: '16px' }}
           />
         </CardBody>

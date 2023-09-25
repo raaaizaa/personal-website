@@ -63,7 +63,7 @@ export default function Spotify() {
       )
 
       const ACCESS_TOKEN = accessTokenResponse.data.access_token
-      const currentlyPlayingResponse = await axios.get(
+      const currentPlayResponse = await axios.get(
         'https://api.spotify.com/v1/me/player/currently-playing',
         {
           headers: {
@@ -73,12 +73,12 @@ export default function Spotify() {
         }
       )
 
-      if (currentlyPlayingResponse.status === USER_IS_CURRENTLY_PLAYING) {
-        const isPlaying = currentlyPlayingResponse.data.is_playing
+      if (currentPlayResponse.status === USER_IS_CURRENTLY_PLAYING) {
+        const isPlaying = currentPlayResponse.data.is_playing
         setPlaying(isPlaying)
         setError(false)
 
-        const metadata = currentlyPlayingResponse.data.item
+        const metadata = currentPlayResponse.data.item
 
         const song = insertSong(
           metadata.artists[0].name,
@@ -91,7 +91,7 @@ export default function Spotify() {
 
         setSong(song)
       } else {
-        const isPlaying = currentlyPlayingResponse.data.is_playing
+        const isPlaying = currentPlayResponse.data.is_playing
         setPlaying(isPlaying)
 
         const recentlyPlayedResponse = await axios.get(
@@ -167,8 +167,8 @@ export default function Spotify() {
                 <Image
                   priority={true}
                   src={song.albumImage}
-                  width={400}
-                  height={400}
+                  width={350}
+                  height={350}
                   alt="img"
                 />
               </Link>
