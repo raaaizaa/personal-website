@@ -84,17 +84,28 @@ export default function Spotify() {
                     <Image priority={true} src={song.albumImage} width={400} height={400} alt="img" />
                 </Link>
             </div>
-            <div className="text-sm lg:text-base xl:text-base text-center">
-                <Link href={song.songLink} target="_blank" className="hover:underline">
-                    <TextInter>
-                        {song.songName.length > 50 ? `${song.songName.substring(0, 50)}...` : song.songName}
-                    </TextInter>
-                </Link>
-                <Link href={song.artistLink} target="_blank" className="hover:underline">
-                    <TextInter>
-                        {song.artistName.length > 50 ? `${song.artistName.substring(0, 50)}...` : song.artistName}
-                    </TextInter>
-                </Link>
+
+            <div className="text-sm lg:text-base xl:text-xl px-0 lg:px-2 xl:px-8">
+              <Link
+                href={song.songLink}
+                target="_blank"
+                >
+                <TextInter className="hover:underline">
+                  {song.songName.length > 50
+                    ? `${song.songName.substring(0, 50)}...`
+                    : song.songName} 
+                </TextInter>
+              </Link>
+              <Link
+                href={song.artistLink}
+                target="_blank"
+                >
+                <TextInter className="hover:underline">
+                  {song.artistName.length > 50
+                    ? `${song.artistName.substring(0, 50)}...`
+                    : song.artistName}
+                </TextInter>
+              </Link>
             </div>
         </div>
     );

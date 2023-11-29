@@ -1,19 +1,34 @@
-import React from 'react';
-import '@/styles/globals.css';
-import {TextP5} from '@/components/atoms/typography/text-p5/text-p5';
-import {TextTooDrunk} from '@/components/atoms/typography/text-linotype/text-linotype';
+import React from 'react'
+import '@/styles/globals.css'
+import Image from 'next/image'
+import hello from '@/public/images/homepage/title/hello.png'
+import my from '@/public/images/homepage/title/my.png'
+import name from '@/public/images/homepage/title/name.png'
+import is from '@/public/images/homepage/title/is.png'
+import raiza from '@/public/images/homepage/title/raiza.png'
 
 export default function Title() {
-    return (
-        <div className="text-center lg:text-start">
-            <TextP5 className="text-3xl lg:text-4xl xl:text-5xl py-2 lg:py-4 xl:py-4">HelLo! my name is</TextP5>
-            <TextTooDrunk className="text-4xl md:text-4xl lg:text-5xl xl:text-6xl text-[#FFB800]">
-                raiza rahman
-            </TextTooDrunk>
-            <div className="pb-12 pt-2 lg:pt-4 lg:pb-0 xl:pb-0 xl:pt-4">
-                <TextP5 className="text-2xl lg:text-4xl xl:text-5xl">an undergraduate computer science</TextP5>
-                <TextP5 className="text-2xl lg:text-4xl xl:text-5xl">student at bina nusantara university</TextP5>
-            </div>
+  return (
+    <div className="justify-center lg:justify-start xl:justify-start items-center">
+      <div className="flex justify-center lg:justify-start xl:justify-start">
+        <Image src={hello} alt="hello" />
+      </div>
+      <div className="flex justify-center lg:justify-start xl:justify-start items-center">
+        <div>
+          <Image src={my} alt="my" />
         </div>
-    );
+        <div>
+          <Image src={name} alt="name" />
+        </div>
+      </div>
+      <div className="flex justify-center lg:justify-start xl:justify-start items-center">
+        <div>
+          <Image src={is} alt="is" />
+        </div>
+        <div>
+          <Image src={raiza} alt="raiza" />
+        </div>
+      </div>
+    </div>
+  )
 }
