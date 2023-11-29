@@ -1,15 +1,26 @@
-import {TextCutout} from '@/components/atoms/typography/text-cutout/text-cutout';
-import {TextInter} from '@/components/atoms/typography/text-inter/text-inter';
-import React from 'react';
+'use client'
+import PortfolioButton from '@/components/atoms/portfolio-button/portfolio-button'
+import PortfolioGrid from '@/components/templates/portfolio/portfolio-grid'
+import portfolio from '@/public/images/portfolio/portfolio.png'
+import { NextUIProvider } from '@nextui-org/react'
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
 export default function PortfolioPage() {
-    return (
-        <div className="flex justify-center items-center h-[93%] p-32 text-center">
-            <div className="block">
-                <TextInter className="text-5xl py-4 font-bold">:/</TextInter>
-                <TextCutout className="text-5xl py-4 text-[#FFB800]">Coming soon</TextCutout>
-                <TextInter className="font-bold">((sebenernya lagi males masukinnya sih))</TextInter>
-            </div>
+  return (
+    <NextUIProvider>
+      <div className="h-[93%] px-12 md:px-24 lg:px-32 xl:px-32 pt-32 text-center">
+        <div className="flex justify-center items-center pb-12">
+          <Link href={`/portfolio/detail`}>
+            <Image src={portfolio} alt="portfolio" width={500} height={500} />
+          </Link>
         </div>
-    );
+        <PortfolioGrid />
+        <div className="flex justify-center items-center py-12">
+          <PortfolioButton />
+        </div>
+      </div>
+    </NextUIProvider>
+  )
 }

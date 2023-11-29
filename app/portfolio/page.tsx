@@ -1,6 +1,7 @@
 'use client'
 
-import { useRouter } from 'next/router'
+import PortfolioPage from '@/components/pages/portfolio/portfolio-page'
+import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
 export default function Page() {
@@ -10,5 +11,5 @@ export default function Page() {
     router.push('/portfolio')
   }, [])
 
-  return <></>
+  return <PortfolioPage />
 }
