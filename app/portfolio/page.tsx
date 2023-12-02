@@ -1,8 +1,8 @@
 'use client'
 
-import PortfolioPage from '@/components/pages/portfolio/portfolio-page'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
+import PortfolioPage from './portfolio'
 
 export default function Page() {
   const router = useRouter()

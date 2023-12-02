@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import type { Metadata } from 'next'
 import { siteConfiguration } from '@/components/constants/site-configuration'
-import NavigationBar from '@/components/organisms/navigation-bar/navigation-bar'
+import NavigationBar from '@/components/ui/navigation-bar/navigation-bar'
 
 export const metadata: Metadata = {
   title: siteConfiguration.title,
@@ -15,9 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="h-screen">
+      <body className='flex justify-center'>
+        <div className='w-screen lg:w-[1800px] xl:w-[1800px] mx-6'>
           <NavigationBar />
-          {children}
+            {children}
+          </div>
       </body>
     </html>
   )
