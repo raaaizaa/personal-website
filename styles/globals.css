@@ -9,18 +9,9 @@
     src: local('Inter'), url(../fonts/Inter/Inter.ttf) format('.ttf')
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    
-}
-
-p {
-    
-}
-
 @layer base {
     :root {
-        background-size: cover;
+        font-family: 'Inter', sans-serif;
         background-color: white;
         color: black;
     }

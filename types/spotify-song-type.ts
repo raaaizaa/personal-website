@@ -1,4 +1,4 @@
-export interface songMetadata {
+export interface songTypes {
   artistName: string
   artistLink: string
   albumImage: string

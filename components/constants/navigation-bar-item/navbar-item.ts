@@ -1,5 +1,5 @@
 export const navbarItem = [
-  { name: 'Home', href: '/' },
+  { name: 'Interests', href: '/interests' },
   { name: 'Portfolio', href: '/portfolio' },
   { name: 'Blog', href: ''}
 ]
