@@ -3,6 +3,7 @@ import { socialMediaItem } from '@/components/constants/social-media/social-medi
 import Link from 'next/link'
 import React from 'react'
 
+
 export default function Homepage() {
     return (
         <Reveal>
@@ -14,13 +15,15 @@ export default function Homepage() {
                         <p className='antialiased text-xl lg:text-2xl xl:text-2xl'>I have a strong interest with Front-end Development!</p>
                     </div>
                     <div className='flex flex-col lg:flex-row xl:flex-row items-center justify-center lg:justify-start xl:justify-start space-y-2 lg:space-y-0 xl:space-y-0 lg:space-x-8 xl:space-x-8'>
-                        <p className='antialiased text-2xl lg:text-3xl xl:text-3xl font-bold'>Get in touch: </p>
+                        <p className='antialiased text-2xl lg:text-3xl xl:text-3xl'>Get in touch: </p>
                         <div className='flex space-x-2'>
                             {socialMediaItem.map((data, index) => {
                                 const Icon = data.icon
                                 return (
                                     <Link key={index} href={data.href} target='__blank'>
+                                        <div className='p-1 hover:bg-slate-400 hover:rounded-xl duration-100 ease-in-out'>
                                         <Icon style={{ height: '36px', width: '36px' }} />
+                                        </div>
                                     </Link>
                                 )
                             })}

@@ -15,11 +15,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='flex justify-center'>
-        <div className='w-screen lg:w-[1800px] xl:w-[1800px] mx-6'>
-          <NavigationBar />
+      <body className='dark:bg-[#100c0c] dark:text-white'>
+        <NavigationBar />
+        <div className='flex justify-center'>
+          <div className='w-screen lg:w-[1800px] xl:w-[1800px] mx-6'>
             {children}
           </div>
+        </div>
       </body>
     </html>
   )

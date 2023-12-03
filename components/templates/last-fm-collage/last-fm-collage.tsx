@@ -2,13 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { albumTypes } from '@/types/lastfm-album-type'
 import Image from 'next/image'
-import Link from 'next/link'
 
-const baseURL = 'https://ws.audioscrobbler.com/2.0'
-const period = '7day'
-
-async function fetch() {
-    try {
 
 
         const albumsResponse = response.data.topalbums.album
@@ -22,9 +16,6 @@ async function fetch() {
                 url: album.url,
             },
         }))
-
-        console.log("Weekly 3x3: ")
-        console.log(albumArray)
 
         return albumArray
     } catch (error) {
@@ -43,14 +34,13 @@ export default function LastFMCollage() {
         }
         getTopWeeklyAlbum()
     }, [])
+
+
     return (
-        <div className='grid grid-cols-3 grid-rows-3 w-[750px]'>
+        <div className='grid grid-cols-3 grid-rows-3 w-[350px] lg:w-[750px] xl:w-[750px] overflow-visible'>
             {album.map((data, index) => (
-                <div key={index} className='flex flex-col justify-center items-center'>
+                <div key={index} className='flex flex-col justify-center items-center hover:scale-110 duration-150 ease-in-out'>
                     <Image src={data.album.image} alt={data.album.name} width={250} height={250} />
-                    <p className='text-center'>{data.album.name.length > 25
-                        ? `${data.album.name.substring(0, 25)}...`
-                        : data.album.name}</p>
                 </div>
             ))}
         </div>
