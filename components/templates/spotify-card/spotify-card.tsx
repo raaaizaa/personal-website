@@ -5,8 +5,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const USER_IS_CURRENTLY_PLAYING = 200
-
-).toString('base64')
+// const TOKEN = Buffer.from(
+//     `${process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID}:${process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET}`
+//   ).toString('base64')
 
 export default function SpotifyCard() {
     const [playing, setPlaying] = useState(Boolean)
@@ -34,6 +35,14 @@ export default function SpotifyCard() {
         return song
     }
 
+    const getPlayingStatus = async () => {
+
+                    headers: {
+                        Authorization: `Basic ${TOKEN}`,
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                }
+            )
 
             const ACCESS_TOKEN = accessTokenResponse.data.access_token
 
@@ -48,7 +57,7 @@ export default function SpotifyCard() {
             )
 
             if (playingResponse.status === USER_IS_CURRENTLY_PLAYING) {
-                setPlaying(playingResponse.data.is_playing)
+                setPlaying(true)
                 setError(false)
 
                 const data = playingResponse.data.item
@@ -96,6 +105,10 @@ export default function SpotifyCard() {
     }
 
     useEffect(() => {
+        getPlayingStatus()
+    }, [])
+
+    useEffect(() => {
         const interval = setInterval(() => {
             getPlayingStatus()
         }, 1000)
@@ -114,11 +127,13 @@ export default function SpotifyCard() {
                         <p className='antialiased text-2xl'>Last played as {date}</p>
                     )}
                     <div>
-                        <div className='flex justify-center items-center'>
-                            <Link href={song.albumLink} target='__blank'>
-                                <Image src={song.albumImage} width={350} height={350} alt='album-cover' priority={true} />
-                            </Link>
-                        </div>
+                        {song.albumImage && (
+                            <div className='flex justify-center items-center'>
+                                <Link href={song.albumLink}>
+                                    <Image src={song.albumImage} alt='album-cover' width={500} height={500} priority/>
+                                </Link>
+                            </div>
+                        )}
                         <div>
                             <Link href={song.songLink} target='__blank'>
                                 <p className='text-xl hover:underline ease-in duration-75'>{song.songName.length > 50

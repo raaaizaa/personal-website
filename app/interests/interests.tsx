@@ -2,6 +2,7 @@
 
 import Reveal from '@/components/animations/reveal'
 import LastFMCollage from '@/components/templates/last-fm-collage/last-fm-collage'
+import MyAnimeListCollage from '@/components/templates/myanimelist-collage/myanimelist-collage'
 import SpotifyCard from '@/components/templates/spotify-card/spotify-card'
 import Link from 'next/link'
 import React, { useEffect } from 'react'
@@ -39,9 +40,18 @@ export default function InterestsPage() {
     )
   }
 
+  const MangaInterests = () => {
+    return (
+      <div className='flex h-screen'>
+        <MyAnimeListCollage />
+      </div>
+    )
+  }
+
   return (
     <div>
       <MusicInterests />
+      <MangaInterests />
     </div>
   )
 }
