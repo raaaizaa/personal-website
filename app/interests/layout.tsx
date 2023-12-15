@@ -25,7 +25,7 @@ export default function InterestsPage() {
           <div className='flex xl:flex-row lg:flex-row flex-col h-screen items-center justify-evenly lg:justify-between xl:justify-between px-4 lg:px-4 xl:px-4 xl:text-start lg:text-start text-start'>
             <div>
               <Reveal>
-                <p className='text-5xl lg:text-8xl xl:text-9xl tracking-tighter transition-all duration-150 mb-2 '>Weekly 3x3 album collage</p>
+                <p className='text-5xl lg:text-8xl xl:text-8xl tracking-tighter transition-all duration-150 mb-2 '>Weekly 3x3 album collage</p>
               </Reveal>
               <Reveal>
                 <p className='text-base lg:text-xl xl:text-xl transition-all duration-150'>Connect with my <Link href='https://www.last.fm/user/Raaizar' target='__blank' className='text-[#c3000d] hover:underline'>LastFm</Link></p>

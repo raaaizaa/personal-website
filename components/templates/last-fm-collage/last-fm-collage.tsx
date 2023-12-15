@@ -15,7 +15,7 @@ interface AlbumCover {
 async function fetch() {
     try {
         const response = await axios.get(
-            `${baseURL}?method=user.gettopalbums&user=${process.env.NEXT_PUBLIC_LASTFM_USERNAME}&api_key=${process.env.NEXT_PUBLIC_LASTFM_API_KEY}&format=json&period=${period}`
+            `${baseURL}?method=user.gettopalbums&user=Raaizar&api_key=37e39e71571eeb1b07cd1ef7d444582c&format=json&period=${period}`
         )
 
         const albumsResponse = response.data.topalbums.album
