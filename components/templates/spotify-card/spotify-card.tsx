@@ -5,9 +5,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const USER_IS_CURRENTLY_PLAYING = 200
-// const TOKEN = Buffer.from(
-//     `${process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID}:${process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET}`
-//   ).toString('base64')
+const TOKEN = Buffer.from(
+    `${process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID}:${process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET}`
+  ).toString('base64')
 
 export default function SpotifyCard() {
     const [playing, setPlaying] = useState(Boolean)
@@ -36,7 +36,11 @@ export default function SpotifyCard() {
     }
 
     const getPlayingStatus = async () => {
-
+        try {
+            const accessTokenResponse = await axios.post(
+                'https://accounts.spotify.com/api/token',
+                `grant_type=refresh_token&refresh_token=${process.env.NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN}`,
+                {
                     headers: {
                         Authorization: `Basic ${TOKEN}`,
                         'Content-Type': 'application/x-www-form-urlencoded',
@@ -84,7 +88,9 @@ export default function SpotifyCard() {
                 )
 
                 const lastPlayedString = lastPlayedResponse.data.items[0].played_at
-                const lastPlayedDate = `${new Date(lastPlayedString).toLocaleTimeString()} at ${new Date(lastPlayedString).toLocaleDateString()}`
+                const lastPlayedDate = `${new Date(lastPlayedString).toLocaleTimeString()} at
+                
+                ${new Date(lastPlayedString).toLocaleDateString()}`
                 setDate(lastPlayedDate)
 
                 const data = lastPlayedResponse.data.items[0].track
@@ -121,27 +127,27 @@ export default function SpotifyCard() {
             {error === false && (
                 <div className='text-center hover:scale-110 duration-150 ease-in-out'>
                     {playing ? (
-                        <p className='antialiased text-2xl'>Currently playing: </p>
+                        <p className='antialiased text-xl lg:text-2xl xl:text-2xl transition-all duration-150'>Currently playing: </p>
 
                     ) : (
-                        <p className='antialiased text-2xl'>Last played as {date}</p>
+                        <p className='antialiased text-xl lg:text-2xl xl:text-2xl transition-all duration-150 whitespace-nowrap' style={{ whiteSpace: 'nowrap' }}>Last played as {date}</p>
                     )}
                     <div>
                         {song.albumImage && (
                             <div className='flex justify-center items-center'>
                                 <Link href={song.albumLink}>
-                                    <Image src={song.albumImage} alt='album-cover' width={500} height={500} priority/>
+                                    <Image src={song.albumImage} alt='album-cover' width={640} height={640} priority className='xl:w-[500px] xl:h-[500px] lg:w-[500px] lg:h-[500px] md:w-[400px] md:h-[400px] w-[300px] h-[300px]' />
                                 </Link>
                             </div>
                         )}
                         <div>
                             <Link href={song.songLink} target='__blank'>
-                                <p className='text-xl hover:underline ease-in duration-75'>{song.songName.length > 50
+                                <p className='text-base lg:text-xl xl:text-xl hover:underline transition-all duration-150'>{song.songName.length > 50
                                     ? `${song.songName.substring(0, 50)}...`
                                     : song.songName}</p>
                             </Link>
                             <Link href={song.artistLink} target='__blank'>
-                                <p className='text-xl hover:underline ease-in duration-75'>{song.artistName.length > 50
+                                <p className='text-base lg:text-xl xl:text-xl hover:underline transition-all duration-150'>{song.artistName.length > 50
                                     ? `${song.artistName.substring(0, 50)}...`
                                     : song.artistName}</p>
                             </Link>

@@ -18,11 +18,13 @@ export default function RootLayout({
       <body className='dark:bg-[#100c0c] dark:text-white'>
         <NavigationBar />
         <div className='flex justify-center'>
-          <div className='w-screen lg:w-[1800px] xl:w-[1800px] mx-6'>
+          <div className='w-screen lg:w-[1800px] xl:w-[1800px]'>
             {children}
-          </div>
+            </div>
         </div>
       </body>
     </html>
   )
 }
+
+// w-screen lg:w-[1800px] xl:w-[1800px] mx-6
