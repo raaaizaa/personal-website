@@ -49,13 +49,13 @@ const Sidebar = ({ closeSidebar }: sidebarProps) => {
     <div className='fixed z-10 top-0 left-0 w-screen h-screen bg-black/50 backdrop-blur-md transition-all duration-150 ease-in'>
       <div className='fixed top-0 right-0 dark:bg-[#100c0c] bg-white w-1/2 h-screen p-6'>
         <div className='flex flex-col gap-y-4'>
-          <div className='flex justify-between items-center'>
-            <p className='text-2xl font-bold text-black dark:text-white'>Menu</p>
-            <IoClose style={{ width: '24px', height: '24px' }} onClick={closeSidebar} />
+          <div className='flex justify-between items-center p-2'>
+            <p className=' text-2xl font-bold text-black dark:text-white'>Menu</p>
+            <IoClose className='hover:cursor-pointer' style={{ width: '24px', height: '24px' }} onClick={closeSidebar} />
           </div>
           <hr />
           {navbarItem.map((data, index) => (
-            <Link key={index} href={data.href}>
+            <Link key={index} href={data.href} className='p-2 hover:dark:bg-[#242323] hover:bg-[#dbdbdb] w-full h-full ease-in-out duration-100'>
               <p className='text-xl dark:text-white text-black'>{data.name}</p>
             </Link>
           ))}
@@ -106,10 +106,9 @@ export default function NavigationBar() {
     <div className='sticky top-0 w-full h-[72px] flex justify-center z-10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 dark:border-b-slate-800 border-b'>
       <div className='w-[1800px] h-full px-2 lg:px-0 xl:px-0 flex justify-between items-center'>
         <Link href={'/'}>
-          <p className='font-thin text-2xl antialiased'>raizatriestocode</p>
+          <p className='select-none text-2xl tracking-tight antialiased hover:text-[#726f6f] hover:dark:text-[#d4d4d4]'>raizatriestocode</p>
         </Link>
         <div className='flex items-center gap-x-4'>
-          {/* <MdOutlineDarkMode style={{ height: '32px', width: '32px' }} onClick={() => themeSwitch()} /> */}
           <Switch
             defaultChecked
             color='success'
@@ -122,15 +121,15 @@ export default function NavigationBar() {
             onValueChange={() => themeSwitch()} />
           <div className='hidden lg:flex xl:flex gap-4 '>
             {navbarItem.map((data, index) => (
-              <Link key={index} href={data.href}>
-                <div className='duration-100 ease-in-out'>
-                  <p className='font-thin text-xl antialiased'>{data.name}</p>
+              <Link key={index} href={data.href} className='hover:text-[#726f6f] hover:dark:text-[#d4d4d4]'>
+                <div className='duration-100 ease-in-out '>
+                  <p className='font-thin text-xl antialiased '>{data.name}</p>
                 </div>
               </Link>
             ))}
           </div>
           <div className='block lg:hidden xl:hidden'>
-            <FaBars style={{ height: '32px', width: '32px' }} onClick={handleSidebar} />
+            <FaBars className='hover:cursor-pointer' style={{ height: '32px', width: '32px' }} onClick={handleSidebar} />
           </div>
         </div>
       </div>
