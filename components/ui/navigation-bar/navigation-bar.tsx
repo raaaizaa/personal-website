@@ -87,7 +87,7 @@ export default function NavigationBar() {
       document.documentElement.classList.add('dark');
     }
   }, [userTheme]);
-
+ 
   const themeSwitch = () => {
     // Ensure code runs only on the client side
     if (typeof window !== 'undefined') {
