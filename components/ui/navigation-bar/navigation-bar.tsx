@@ -4,9 +4,7 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { FaBars } from 'react-icons/fa'
 import { IoClose } from 'react-icons/io5'
-import { MdOutlineDarkMode } from "react-icons/md"
 import { Switch } from "@nextui-org/react";
-
 
 interface sidebarProps {
   closeSidebar: () => void
@@ -68,36 +66,41 @@ const Sidebar = ({ closeSidebar }: sidebarProps) => {
 }
 
 export default function NavigationBar() {
-  const [sidebar, setSidebar] = useState(false)
+  const [sidebar, setSidebar] = useState(false);
+  const [userTheme, setUserTheme] = useState<string | null>(null);
 
   const handleSidebar = () => {
-    setSidebar(!sidebar)
-  }
-
-  const userTheme = localStorage.getItem("theme")
-  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-
-  const themeCheck = () => {
-    if (userTheme === 'dark' || (!userTheme && systemTheme)) {
-      document.documentElement.classList.add('dark')
-      return
-    }
-  }
-
-  const themeSwitch = () => {
-    if (document.documentElement.classList.contains("dark")) {
-      document.documentElement.classList.remove('dark')
-      localStorage.setItem('theme', "light")
-      return
-    }
-
-    document.documentElement.classList.add('dark')
-    localStorage.setItem('theme', 'dark')
-  }
+    setSidebar(!sidebar);
+  };
 
   useEffect(() => {
-    themeCheck()
-  }, [])
+    // Ensure code runs only on the client side
+    if (typeof window !== 'undefined') {
+      const storedTheme = localStorage.getItem('theme');
+      setUserTheme(storedTheme);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Theme check logic
+    if (userTheme === 'dark' || (!userTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  }, [userTheme]);
+
+  const themeSwitch = () => {
+    // Ensure code runs only on the client side
+    if (typeof window !== 'undefined') {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+  };
+
 
   return (
     <div className='sticky top-0 w-full h-[72px] flex justify-center z-10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 dark:border-b-slate-800 border-b'>
